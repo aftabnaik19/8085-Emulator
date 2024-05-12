@@ -102,7 +102,7 @@ void printAllRegisters(struct Registers cpu)
     printf("Data: %02X\n", cpu.bus.dataBus);
     printf("Control:  %02X\n", cpu.bus.controlBus);
 }
-unsigned char memory[40][40];
+unsigned short memory[40][40];
 
 int main()
 {
@@ -134,9 +134,9 @@ int main()
     {
         for (int j = 0; j < 16; j++)
         {
-            memory[i][j] = 0;
+            memory[i][j] = 65535;
+            printf("%05d [%02X]  ", memory[i][j], value);
             value++;
-            printf("%03d [%02X]  ", memory[i][j], value);
         }
         printf("\n\n");
     }
